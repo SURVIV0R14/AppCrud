@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--clr-black);
+    font-family: 'Rubik', sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+.btn1 {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: burlywood;
+    border-radius: 1rem;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.btn2 {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: blue;
+    border-radius: 1rem;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.btn3 {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: blueviolet;
+    border-radius: 1rem;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.regresar {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: black;
+    border-radius: 1rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.regresar2 {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: red;
+    border-radius: 1rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.regresar3 {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: aquamarine;
+    border-radius: 1rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5rem;
+    padding-inline: 2rem;
+}
+
+.btn-header:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 2rem rgb(0, 0, 0 .25);
+}
+
+header {
+    max-width: 570px;
+    margin: auto;
+    padding-block: 1rem;
+    box-shadow: 0 0 2rem rgb(0, 0, 0, .25);
+    border-radius: 1rem;
+}
+
+.contenedorGrande {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 650px;
+    margin: 1rem;
+}
+
+.contenedorGrande2 {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 700px;
+    margin: 1rem;
+}
+
+#submit {
+    width: 180px;
+    height: 30px;
+    margin: auto;
+    border-radius: 1rem;
+    background-color: cadetblue;
+    text-transform: uppercase;
+    font-weight: 800;
+    border: none;
+}
+
+input {
+    background-color: gainsboro;
+}
+
+body {
+    background-color: #060b23;
+}
+
+.Enviar input {
+    margin-top: 1rem;
+    width: 180px;
+    height: 30px;
+    margin: auto;
+    border-radius: 1rem;
+    background-color: aquamarine;
+    text-transform: uppercase;
+    font-weight: 800;
+    border: none;
+}
+
+.editar {
+    margin: auto;
+    border-radius: 1rem;
+    background-color: aqua;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    width: 180px;
+    height: 30px;
+}
+
+.eliminar {
+    margin: auto;
+    border-radius: 1rem;
+    background-color: red;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    width: 180px;
+    height: 30px;
+}
+
+.editar1 {
+    margin: auto;
+    border-radius: 1rem;
+    background-color: cornflowerblue;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    width: 180px;
+    height: 30px;
+}
+
+.eliminar1 {
+    margin: auto;
+    border-radius: 1rem;
+    background-color: red;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    width: 180px;
+    height: 30px;
+}
+.Enviar{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.Noentregado{
+    text-decoration: none;
+    background-color: red;
+    margin: auto;
+    border: none;
+    border-radius: 1rem;
+    width: 110px;
+    height: 30px;
+    font-weight: 800;
+    color: white;
+    cursor: pointer;
+}
+.entregado{
+    text-decoration: none;
+    background-color: green;
+    margin: auto;
+    border: none;
+    border-radius: 1rem;
+    width: 110px;
+    height: 30px;
+    font-weight: 800;
+    color: white;
+    cursor: pointer;
+}

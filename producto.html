@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <div>
+        <a class="btn-header regresar" href="1.html">Regresar</a>
+    </div>
+    <div class="contenedorGrande">
+        <h1>REGISTRO DE PRODUCTO</h1>
+        <div class="contenedorMediano">
+            <div class="inputNombre">
+                <h3>NOMBRE:</h3>
+                <input type="text" id="nombre" placeholder="Nombre del Producto"></input>
+            </div>
+            <div class="inputPrecio">
+                <h3>PRECIO:</h3>
+                <input type="text" id="precio" placeholder="Precio del Producto">
+            </div>
+            <div class="inputCategoria">
+                <h3>CATEGORIA:</h3>
+                <input type="radio" id="Alimentos" name="Alimentos" value="Alimentos" required>
+                <label for="Alimentos">Alimentos</label>
+                <br>
+                <input type="radio" id="Objetos" name="Objetos" value="Objetos" required>
+                <label for="Objetos">Objetos</label>
+                <br>
+                <input type="radio" id="Computadoras" name="Computadoras" value="Computadoras" required>
+                <label for="Computadoras">Computadoras</label>
+                <br>
+                <br>
+                <div class="Enviar">
+                    <input class="btn-header enviar1" type="submit" id="submit" value="Guardar Producto">
+                    <button class="btn-header editar1">EDITAR</button>
+                    <button class="btn-header eliminar1">ELIMINAR</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
