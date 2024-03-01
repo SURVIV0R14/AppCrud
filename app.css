@@ -139,6 +139,7 @@ header {
     padding-block: 1rem;
     box-shadow: 0 0 2rem rgb(0, 0, 0, .25);
     border-radius: 1rem;
+    background-color: var(--clr-gray);
 }
 
 .contenedorGrande {
