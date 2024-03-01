@@ -179,7 +179,7 @@ input {
 }
 
 body {
-    background-color: var(--clr-white);
+    background-color: var(--type-normal);
 }
 
 .Enviar input {
