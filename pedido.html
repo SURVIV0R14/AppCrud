@@ -7,24 +7,24 @@
     <title>Pedido</title>
     <link rel="stylesheet" href="app.css">
     <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<style>
-    .material-symbols-outlined {
-        color: white;
-        font-variation-settings:
-            'FILL' 0,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 24
-    }
-</style>
-<script src="app.js"></script>
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        .material-symbols-outlined {
+            color: white;
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+    <script src="app.js"></script>
 </head>
 
 <body>
     <a class="btn-header regresar" href="1.html"><span class="material-symbols-outlined">
-        home
-    </span></a>
+            home
+        </span></a>
     <div class="contenedorGrande">
         <h1>PEDIDOS</h1>
         <div class="contenedorMediano">
@@ -61,23 +61,43 @@
         </div>
     </div>
     <div class="contenedorTablaProducto">
-        <table class="tablaPe" id="tablaPeId">
-            <tr>
-                <th>CODIGO DEL PRODUCTO</th>
-                <th>direccion del pedido</th>
-                <th>estado del producto</th>
-                <th>fecha de entrega</th>
-                <th>lugar de entrega</th>
-            </tr>
-            <tr>
-                <td>10000</td>
-                <td>av*********</td>
-                <td>********</td>
-                <td>DATE</td>
-                <td>CITY</td>
-            </tr>
+        <table class="tablaPro" id="tablaPeId">
+            <thead>
+                <tr>
+                    <th style="font-size: 15px;" id="codtab">CODIGO DEL PRODUCTO</th>
+                    <th style="font-size: 15px;" id="direTab">direccion del pedido</th>
+                    <th style="font-size: 15px;" id="estaTab">estado del producto</th>
+                    <th style="font-size: 15px;" id="fechtab"> fecha de entrega</th>
+                    <th style="font-size: 15px;" id="lugtab">lugar de entrega</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>10000</td>
+                    <td>av*********</td>
+                    <td>********</td>
+                    <td>DATE</td>
+                    <td>CITY</td>
+                </tr>
+            </tbody>
         </table>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var table = document.getElementById('tablaPeId');
+            var rows = table.getElementsByTagName('tr');
+
+            for (let i = 0; i < rows.length; i++) {
+                rows[i].addEventListener('click', function () { 
+                    var cells = this.getElementsByTagName('td'); 
+
+                    document.getElementById('codPed').value = cells[0].innerText;
+                    
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

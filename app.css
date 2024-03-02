@@ -258,31 +258,24 @@ table {
 th {
     color: white;
     background-color: #e094b5;
-    border: 4px solid white;
+    border: 4px solid var(--clr-gray);
     padding: 10px;
     font-size: 18px;
     text-transform: uppercase;
     text-align: left;
 }
-
-td {
-
-    background-color: var(--clr-gray);
-    border: 6px solid white;
-    padding: 8px;
+td{
+    color: black;
+    border: 4px solid var(--clr-gray);
+    padding: 10px;
+    font-size: 15px;
+    text-transform: uppercase;
     text-align: left;
-    font-weight: 400;
 }
 
-table,
-th,
-td {
-    margin: 1rem;
-}
 .Entregado{
     padding: 5px 10px;
     background-color: var(--type-grass);
-    border-radius: 1rem;
     text-align: center;
     font-weight: 600;
     color: white;
@@ -290,8 +283,18 @@ td {
 .noEntregado{
     padding: 5px 10px;
     background-color: red;
-    border-radius: 1rem;
     text-align: center;
     font-weight: 600;
     color: white;
+}
+table{
+    margin: 1rem;
+}
+.tablaPro>tbody>tr:nth-child(2n+1){
+    color: #000000;
+    background-color: white;
+}
+.tablaPro>tbody>tr:hover{
+    cursor: pointer;
+    background-color: #F0B6BC;
 }

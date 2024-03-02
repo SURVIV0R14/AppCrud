@@ -4,7 +4,7 @@ function mostrarDatosPro() {
     const catePro = document.getElementsByName('Cat');
 
     let categoriaSeleccionada;
-    catePro.forEach(function(categoria) {
+    catePro.forEach(function (categoria) {
         if (categoria.checked) {
             categoriaSeleccionada = categoria.value;
         }
@@ -17,8 +17,15 @@ function mostrarDatosPro() {
     let celdaPrecio = nuevaFila.insertCell(1);
     let celdaCat = nuevaFila.insertCell(2);
     celdaNombre.textContent = nombrePro;
-    celdaPrecio.textContent = "$ "+precioPro;
+    celdaPrecio.textContent = "$ " + precioPro;
     celdaCat.textContent = categoriaSeleccionada;
+    
+    document.getElementById('nombre').value = "";
+    document.getElementById('precio').value = "";
+
+    for (var i = 0; i < catePro.length; i++) {
+        catePro[i].checked = false;
+    }
 }
 function mostrarDatosCli() {
     const nombreCli = document.getElementById('nomClient').value;
@@ -37,6 +44,11 @@ function mostrarDatosCli() {
     celdaApe.textContent = apeCli;
     celdaedad.textContent = edadCli;
     celdacorreo.textContent = correoCli;
+
+    document.getElementById('nomClient').value = "";
+    document.getElementById('apeClientapeClient').value = "";
+    document.getElementById('edadClient').value = "";
+    document.getElementById('emailClient').value = "";
 }
 function mostrarDatosPe() {
     const codPe = document.getElementById('codPed').value;
@@ -44,7 +56,7 @@ function mostrarDatosPe() {
     const estaPe = document.getElementsByName('estado');
 
     let opcionSeleccionada;
-    estaPe.forEach(function(estadi) {
+    estaPe.forEach(function (estadi) {
         if (estadi.checked) {
             opcionSeleccionada = estadi.value;
         }
@@ -61,7 +73,7 @@ function mostrarDatosPe() {
     let celdaEsta = nuevaFila.insertCell(2);
     let celdaFecha = nuevaFila.insertCell(3);
     let celdaLugar = nuevaFila.insertCell(4);
-    celdaCod.textContent = "#"+codPe;
+    celdaCod.textContent = "#" + codPe;
     celdaDirec.textContent = direcPe;
     celdaFecha.textContent = fechaPe;
     celdaLugar.textContent = LugarPe;
@@ -72,4 +84,16 @@ function mostrarDatosPe() {
     } else if (opcionSeleccionada === 'NO ENTREGADO') {
         celdaEsta.classList.add('noEntregado');
     }
+  
+    document.getElementById('codPed').value = "";
+    document.getElementById('DirecPed').value = "";
+    document.getElementById('datePe').value = "";
+    document.getElementById('lugarPe').value = "";
+
+    for (var i = 0; i < estaPe.length; i++) {
+        estaPe[i].checked = false;
+    }
 }
+
+
+
