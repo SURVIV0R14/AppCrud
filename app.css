@@ -25,7 +25,9 @@
     --type-fairy: #F0B6BC;
 }
 
-
+body{
+    background-color: var(--clr-gray);
+}
 
 * {
     padding: 0;
@@ -41,7 +43,7 @@ ul {
 .btn1 {
     display: inline-block;
     padding: 10px 20px;
-    background-color: var(--type-ice);
+    background-color: #e094b5;
     border-radius: 1rem;
     color: #fff;
     text-decoration: none;
@@ -55,7 +57,7 @@ ul {
 .btn2 {
     display: inline-block;
     padding: 10px 20px;
-    background-color: blue;
+    background-color: #e094b5;
     border-radius: 1rem;
     color: #fff;
     text-decoration: none;
@@ -69,7 +71,7 @@ ul {
 .btn3 {
     display: inline-block;
     padding: 10px 20px;
-    background-color: blueviolet;
+    background-color: #e094b5;
     border-radius: 1rem;
     color: #fff;
     text-decoration: none;
@@ -83,7 +85,7 @@ ul {
 .regresar {
     display: inline-block;
     padding: 15px 20px;
-    background-color: var(--clr-gray);
+    background-color: #e094b5;
     border-radius: 1rem;
     color: white;
     border: none;
@@ -143,74 +145,75 @@ header {
     height: 30px;
     margin: auto;
     border-radius: 1rem;
-    background-color: #6890F0;
+    background-color: #e094b5;
     text-transform: uppercase;
     font-weight: 800;
     border: none;
+    color: white;
 }
 
 input {
     background-color: gainsboro;
 }
-
-body {
-    background-color: var(--type-fairy);
-}
-
 .Enviar input {
     margin-top: 1rem;
     width: 180px;
     height: 30px;
     margin: auto;
     border-radius: 1rem;
-    background-color: aquamarine;
+    background-color: #e094b5;
     text-transform: uppercase;
     font-weight: 800;
     border: none;
+    color: white;
 }
 
 .editar {
     margin: auto;
     border-radius: 1rem;
-    background-color: aqua;
+    background-color: #e094b5;
     border: none;
     text-transform: uppercase;
     font-weight: 800;
     width: 180px;
     height: 30px;
+    color: white;
 }
 
 .eliminar {
     margin: auto;
     border-radius: 1rem;
-    background-color: red;
+    background-color: #e094b5;
     border: none;
     text-transform: uppercase;
     font-weight: 800;
     width: 180px;
     height: 30px;
+    color: white;
 }
 
 .editar1 {
     margin: auto;
     border-radius: 1rem;
-    background-color: cornflowerblue;
+    background-color: #e094b5;
     border: none;
     text-transform: uppercase;
     font-weight: 800;
     width: 180px;
     height: 30px;
+    color: white;
 }
 
 .eliminar1 {
     margin: auto;
     border-radius: 1rem;
-    background-color: red;
+    background-color: #e094b5;
     border: none;
     text-transform: uppercase;
     font-weight: 800;
     width: 180px;
     height: 30px;
+    color: white;
 }
 
 .Enviar {
@@ -253,9 +256,9 @@ table {
 }
 
 th {
-
-    background-color: #f2f2f2;
-    border: 6px solid #dddddd;
+    color: white;
+    background-color: #e094b5;
+    border: 4px solid white;
     padding: 10px;
     font-size: 18px;
     text-transform: uppercase;
@@ -265,7 +268,7 @@ th {
 td {
 
     background-color: var(--clr-gray);
-    border: 6px solid #dddddd;
+    border: 6px solid white;
     padding: 8px;
     text-align: left;
     font-weight: 400;
