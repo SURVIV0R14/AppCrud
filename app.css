@@ -82,44 +82,17 @@ ul {
 
 .regresar {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: black;
-    border-radius: 1rem;
-    color: white;
-    border: none;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: 800;
-    text-decoration: none;
-}
-
-.regresar2 {
-    display: inline-block;
-    padding: 10px 20px;
+    padding: 10px 10px;
     background-color: red;
     border-radius: 1rem;
     color: white;
     border: none;
+    font-size: 10px;
     cursor: pointer;
     text-transform: uppercase;
     font-weight: 800;
     text-decoration: none;
 }
-
-.regresar3 {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #B8B8D0;
-    border-radius: 1rem;
-    color: black;
-    border: none;
-    cursor: pointer;
-    text-transform: white;
-    font-weight: 800;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
 .nav-list {
     display: flex;
     align-items: center;
