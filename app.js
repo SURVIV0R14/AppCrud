@@ -46,7 +46,7 @@ function mostrarDatosCli() {
     celdacorreo.textContent = correoCli;
 
     document.getElementById('nomClient').value = "";
-    document.getElementById('apeClientapeClient').value = "";
+    document.getElementById('apeClient').value = "";
     document.getElementById('edadClient').value = "";
     document.getElementById('emailClient').value = "";
 }
