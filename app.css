@@ -82,8 +82,8 @@ ul {
 
 .regresar {
     display: inline-block;
-    padding: 10px 10px;
-    background-color: red;
+    padding: 15px 20px;
+    background-color: var(--clr-gray);
     border-radius: 1rem;
     color: white;
     border: none;
@@ -93,6 +93,7 @@ ul {
     font-weight: 800;
     text-decoration: none;
 }
+
 .nav-list {
     display: flex;
     align-items: center;
@@ -142,7 +143,7 @@ header {
     height: 30px;
     margin: auto;
     border-radius: 1rem;
-    background-color: cadetblue;
+    background-color: #6890F0;
     text-transform: uppercase;
     font-weight: 800;
     border: none;
@@ -153,7 +154,7 @@ input {
 }
 
 body {
-    background-color: var(--type-normal);
+    background-color: var(--type-fairy);
 }
 
 .Enviar input {
@@ -211,13 +212,15 @@ body {
     width: 180px;
     height: 30px;
 }
-.Enviar{
+
+.Enviar {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 0.5rem;
 }
-.Noentregado{
+
+.Noentregado {
     text-decoration: none;
     background-color: red;
     margin: auto;
@@ -229,7 +232,8 @@ body {
     color: white;
     cursor: pointer;
 }
-.entregado{
+
+.entregado {
     text-decoration: none;
     background-color: green;
     margin: auto;
@@ -240,4 +244,51 @@ body {
     font-weight: 800;
     color: white;
     cursor: pointer;
+}
+
+table {
+    min-width: 650px;
+    max-width: 1000px;
+    border-collapse: collapse;
+}
+
+th {
+
+    background-color: #f2f2f2;
+    border: 6px solid #dddddd;
+    padding: 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+td {
+
+    background-color: var(--clr-gray);
+    border: 6px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+    font-weight: 400;
+}
+
+table,
+th,
+td {
+    margin: 1rem;
+}
+.Entregado{
+    padding: 5px 10px;
+    background-color: var(--type-grass);
+    border-radius: 1rem;
+    text-align: center;
+    font-weight: 600;
+    color: white;
+}
+.noEntregado{
+    padding: 5px 10px;
+    background-color: red;
+    border-radius: 1rem;
+    text-align: center;
+    font-weight: 600;
+    color: white;
 }

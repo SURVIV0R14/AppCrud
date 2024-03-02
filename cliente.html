@@ -6,11 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cliente</title>
     <link rel="stylesheet" href="app.css">
+    <script src="app.js"></script>
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<style>
+    .material-symbols-outlined {
+        font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+    }
+</style>
 </head>
 
 <body>
     <div>
-        <a class="btn-header regresar" href="1.html">Regresar</a>
+        <a class="btn-header regresar" href="1.html"><span class="material-symbols-outlined">
+            home
+        </span></a>
     </div>
     <div class="contenedorGrande2">
         <h1>CLIENTES</h1>
@@ -36,11 +50,27 @@
             <br>
             <br>
             <div class="Enviar">
-                <input class="btn-header enviar" type="submit" value="Guardar">
+                <button onclick="mostrarDatosCli()" class="btn-header enviar1" id="submit">GUARDAR PRODUCTO</button>
                 <button class="btn-header editar">EDITAR</button>
                 <button class="btn-header eliminar">ELIMINAR</button>
             </div>
         </div>
+    </div>
+    <div class="contenedorTablaProducto">
+        <table class="tablaPro" id="tablaCliId">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Edad</th>
+                <th>Correo ELECTRONICO</th>
+            </tr>
+            <tr>
+                <td>Manzana</td>
+                <td>10</td>
+                <td>Computadora</td>
+                <td>******@***.com</td>
+            </tr>
+        </table>
     </div>
 
 </body>

@@ -7,13 +7,38 @@
     <title>Producto</title>
     <link rel="stylesheet" href="app.css">
     <script src="app.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 500,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 700,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        </style>
 </head>
 
 <body>
+
     <div>
-        <a class="btn-header regresar" href="1.html">Regresar</a>
+        
+        <a class="btn-header regresar" href="1.html"><span class="material-symbols-outlined">
+                home
+            </span></a>
     </div>
-    <div class="contenedorGrande">
+    <div class="contenedorGrande" id="transactionForm">
         <h1>REGISTRO DE PRODUCTO</h1>
         <div class="contenedorMediano">
             <div class="inputNombre">
@@ -26,24 +51,37 @@
             </div>
             <div class="inputCategoria">
                 <h3>CATEGORIA:</h3>
-                <input type="radio" id="Alimentos" name="Alimentos" value="Alimentos" required>
+                <input type="radio" id="Alimentos" name="Cat" value="Alimentos" required>
                 <label for="Alimentos">Alimentos</label>
                 <br>
-                <input type="radio" id="Objetos" name="Objetos" value="Objetos" required>
+                <input type="radio" id="Objetos" name="Cat" value="Objetos" required>
                 <label for="Objetos">Objetos</label>
                 <br>
-                <input type="radio" id="Computadoras" name="Computadoras" value="Computadoras" required>
+                <input type="radio" id="Computadoras" name="Cat" value="Computadoras" required>
                 <label for="Computadoras">Computadoras</label>
                 <br>
                 <br>
                 <div class="Enviar">
-                    <input onclick="capturarDatos()" class="btn-header enviar1" type="submit" id="submit" value="Guardar Producto">
+                    <button onclick="mostrarDatosPro()" class="btn-header enviar1" id="submit">GUARDAR PRODUCTO</button>
                     <button class="btn-header editar1">EDITAR</button>
                     <button class="btn-header eliminar1">ELIMINAR</button>
                 </div>
             </div>
         </div>
-
+    </div>
+    <div class="contenedorTablaProducto">
+        <table class="tablaPro" id="tablaProId">
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Categoria</th>
+            </tr>
+            <tr>
+                <td>Manzana</td>
+                <td>10</td>
+                <td>Computadora</td>
+            </tr>
+        </table>
     </div>
 </body>
 
