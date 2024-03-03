@@ -19,7 +19,7 @@ function mostrarDatosPro() {
     celdaNombre.textContent = nombrePro;
     celdaPrecio.textContent = "$ " + precioPro;
     celdaCat.textContent = categoriaSeleccionada;
-    
+
     document.getElementById('nombre').value = "";
     document.getElementById('precio').value = "";
 
@@ -50,23 +50,57 @@ function mostrarDatosCli() {
     document.getElementById('edadClient').value = "";
     document.getElementById('emailClient').value = "";
 }
-function mostrarDatosPe() {
-    const codPe = document.getElementById('codPed').value;
-    const direcPe = document.getElementById('DirecPed').value;
-    const estaPe = document.getElementsByName('estado');
+var dataList = [];
+var codePedidoForm = "";
 
-    let opcionSeleccionada;
+function guardarDatosForm(codPe,direcPe,estaPe,opcionSeleccionada,fechaPe,LugarPe){
+    codPe = document.getElementById('codPed').value;
+    direcPe = document.getElementById('DirecPed').value;
+    estaPe = document.getElementsByName('estado');
+    //let codPedido = mifuncion();
+
     estaPe.forEach(function (estadi) {
         if (estadi.checked) {
             opcionSeleccionada = estadi.value;
         }
     });
 
-    const fechaPe = document.getElementById('datePe').value;
-    const LugarPe = document.getElementById('lugarPe').value;
+    fechaPe = document.getElementById('datePe').value;
+    LugarPe = document.getElementById('lugarPe').value;
+
+    this.dataList.push({
+        codPex: codPe,
+        DirecPedx: direcPe,
+        estadox: opcionSeleccionada,
+        datePex: fechaPe,
+        lugarPex: LugarPe,
+        //codPedidox:codPedido
+    });
+    this.insertarLinea(codPe,direcPe,fechaPe,LugarPe,opcionSeleccionada,estaPe);
+}
+
+function insertarLinea(codPe,direcPe,fechaPe,LugarPe,opcionSeleccionada,estaPe) {
 
     let tabla = document.getElementById('tablaPeId');
     let nuevaFila = tabla.insertRow(-1);
+
+    nuevaFila.addEventListener('click', function () {
+
+        document.getElementById('codPed').value = codPe;
+        document.getElementById('DirecPed').value = direcPe;
+        let listRadio = document.getElementsByName('estado');
+        listRadio.forEach(function (radiob) {
+            if (radiob.value === opcionSeleccionada) {
+                radiob.checked = true;
+            }
+        });
+
+        document.getElementById('datePe').value = fechaPe;
+        document.getElementById('lugarPe').value = LugarPe;
+
+    });
+
+
 
     let celdaCod = nuevaFila.insertCell(0);
     let celdaDirec = nuevaFila.insertCell(1);
@@ -84,7 +118,7 @@ function mostrarDatosPe() {
     } else if (opcionSeleccionada === 'NO ENTREGADO') {
         celdaEsta.classList.add('noEntregado');
     }
-  
+
     document.getElementById('codPed').value = "";
     document.getElementById('DirecPed').value = "";
     document.getElementById('datePe').value = "";
@@ -92,6 +126,48 @@ function mostrarDatosPe() {
 
     for (var i = 0; i < estaPe.length; i++) {
         estaPe[i].checked = false;
+    }
+
+    console.log(dataList)
+}
+
+
+function guardar(row) {
+    let codPe = "";
+    let direcPe = "";
+    let estaPe = "";
+    let fechaPe = "";
+    let LugarPe = "";
+    let opcionSeleccionada = "";
+
+    if (row) {
+        codPe = row.codPex;
+        direcPe = row.DirecPedx;
+        estaPe = row.estadox;
+        fechaPe = row.datePex;
+        LugarPe = row.lugarPex;
+        opcionSeleccionada = row.estadox;
+        this.insertarLinea(codPe,direcPe,fechaPe,LugarPe,opcionSeleccionada,estaPe);
+    } else {
+        this.guardarDatosForm(codPe,direcPe,estaPe,opcionSeleccionada,fechaPe,LugarPe);
+
+    }
+    // this.insertarLinea(codPe,direcPe,fechaPe,LugarPe,opcionSeleccionada,estaPe);
+}
+
+function setData() {
+    let tabla = document.getElementById('tablaPeId');
+    var filas = tabla.querySelectorAll('tr:not(:first-child)');
+
+    filas.forEach(function (fila) {
+        fila.remove();
+    });
+
+    for (let i = 0; i < this.dataList.length; i++) {
+
+        this.mostrarDatosPe(this.dataList[i]);
+
+
     }
 }
 

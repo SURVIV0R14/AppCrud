@@ -47,14 +47,14 @@
             </div>
             <div class="inputFechaPed">
                 <h3>FECHA DE ENTREGA:</h3>
-                <input type="date" id="datePe">
+                <input type="date" id="datePe" placeholder="fecha">
             </div>
             <div class="inputLugarEntrega">
                 <h3>LUGAR DE ENTREGA:</h3>
                 <input type="text" placeholder="Lugar de entrega" id="lugarPe">
             </div>
             <div class="Enviar" style="margin-top: 2rem;">
-                <button onclick="mostrarDatosPe()" class="btn-header enviar1" id="submit">GUARDAR PRODUCTO</button>
+                <button onclick="guardar(null)" class="btn-header enviar1" id="submit">GUARDAR PRODUCTO</button>
                 <button class="btn-header editar">EDITAR</button>
                 <button class="btn-header eliminar">ELIMINAR</button>
             </div>
@@ -72,32 +72,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>10000</td>
-                    <td>av*********</td>
-                    <td>********</td>
-                    <td>DATE</td>
-                    <td>CITY</td>
-                </tr>
             </tbody>
         </table>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var table = document.getElementById('tablaPeId');
-            var rows = table.getElementsByTagName('tr');
-
-            for (let i = 0; i < rows.length; i++) {
-                rows[i].addEventListener('click', function () { 
-                    var cells = this.getElementsByTagName('td'); 
-
-                    document.getElementById('codPed').value = cells[0].innerText;
-                    
-                });
-            }
-        });
-    </script>
 </body>
 
 </html>
