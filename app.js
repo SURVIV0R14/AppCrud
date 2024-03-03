@@ -1,3 +1,6 @@
+var dataList = [];
+var codePedidoForm = "";
+
 function mostrarDatosPro() {
     const nombrePro = document.getElementById('nombre').value;
     const precioPro = document.getElementById('precio').value;
@@ -27,33 +30,51 @@ function mostrarDatosPro() {
         catePro[i].checked = false;
     }
 }
-function mostrarDatosCli() {
-    const nombreCli = document.getElementById('nomClient').value;
-    const apeCli = document.getElementById('apeClient').value;
-    const edadCli = document.getElementById('edadClient').value;
-    const correoCli = document.getElementById('emailClient').value;
+function guardarDatosCli() {
+    nombreCli = document.getElementById('nomClient').value;
+    apeCli = document.getElementById('apeClient').value;
+    edadCli = document.getElementById('edadClient').value;
+    correoCli = document.getElementById('emailClient').value;
 
+    this.dataList.push({
+        nomClix: nomClient,
+        apeClix: apeClient,
+        edadClix: edadClient,
+        emailClix: emailClient
+    });
+    this.insertarLineaCli(nomClient, apeClient, edadClient, emailClient);
+}
+
+function insertarLineaCli(nomClient, apeClient, edadClient, emailClient) {
     let tabla = document.getElementById("tablaCliId");
     let nuevaFila = tabla.insertRow(-1);
+
+    nuevaFila.addEventListener('click', function () {
+
+        document.getElementById('codPed').value = nomClient;
+        document.getElementById('DirecPed').value = apeClient;
+        document.getElementById('datePe').value = edadClient;
+        document.getElementById('lugarPe').value = emailClient;
+
+    });
 
     let celdaNombre = nuevaFila.insertCell(0);
     let celdaApe = nuevaFila.insertCell(1);
     let celdaedad = nuevaFila.insertCell(2);
     let celdacorreo = nuevaFila.insertCell(3);
-    celdaNombre.textContent = nombreCli;
-    celdaApe.textContent = apeCli;
-    celdaedad.textContent = edadCli;
-    celdacorreo.textContent = correoCli;
+    celdaNombre.textContent = nomClient;
+    celdaApe.textContent = apeClient;
+    celdaedad.textContent = edadClient;
+    celdacorreo.textContent = emailClient;
 
     document.getElementById('nomClient').value = "";
     document.getElementById('apeClient').value = "";
     document.getElementById('edadClient').value = "";
     document.getElementById('emailClient').value = "";
 }
-var dataList = [];
-var codePedidoForm = "";
 
-function guardarDatosForm(codPe,direcPe,estaPe,opcionSeleccionada,fechaPe,LugarPe){
+
+function guardarDatosPe(codPe, direcPe, estaPe, opcionSeleccionada, fechaPe, LugarPe) {
     codPe = document.getElementById('codPed').value;
     direcPe = document.getElementById('DirecPed').value;
     estaPe = document.getElementsByName('estado');
@@ -76,10 +97,10 @@ function guardarDatosForm(codPe,direcPe,estaPe,opcionSeleccionada,fechaPe,LugarP
         lugarPex: LugarPe,
         //codPedidox:codPedido
     });
-    this.insertarLinea(codPe,direcPe,fechaPe,LugarPe,opcionSeleccionada,estaPe);
+    this.insertarLineaPe(codPe, direcPe, fechaPe, LugarPe, opcionSeleccionada, estaPe);
 }
 
-function insertarLinea(codPe,direcPe,fechaPe,LugarPe,opcionSeleccionada,estaPe) {
+function insertarLineaPe(codPe, direcPe, fechaPe, LugarPe, opcionSeleccionada, estaPe) {
 
     let tabla = document.getElementById('tablaPeId');
     let nuevaFila = tabla.insertRow(-1);
@@ -132,7 +153,7 @@ function insertarLinea(codPe,direcPe,fechaPe,LugarPe,opcionSeleccionada,estaPe) 
 }
 
 
-function guardar(row) {
+function guardarPe(row) {
     let codPe = "";
     let direcPe = "";
     let estaPe = "";
@@ -147,9 +168,9 @@ function guardar(row) {
         fechaPe = row.datePex;
         LugarPe = row.lugarPex;
         opcionSeleccionada = row.estadox;
-        this.insertarLinea(codPe,direcPe,fechaPe,LugarPe,opcionSeleccionada,estaPe);
+        this.insertarLineaPe(codPe, direcPe, fechaPe, LugarPe, opcionSeleccionada, estaPe);
     } else {
-        this.guardarDatosForm(codPe,direcPe,estaPe,opcionSeleccionada,fechaPe,LugarPe);
+        this.guardarDatosPe(codPe, direcPe, estaPe, opcionSeleccionada, fechaPe, LugarPe);
 
     }
     // this.insertarLinea(codPe,direcPe,fechaPe,LugarPe,opcionSeleccionada,estaPe);
