@@ -1,20 +1,40 @@
 var dataList = [];
 var codePedidoForm = "";
 
-function mostrarDatosPro() {
-    const nombrePro = document.getElementById('nombre').value;
-    const precioPro = document.getElementById('precio').value;
-    const catePro = document.getElementsByName('Cat');
+function guardarDatosPro(nombrePro, precioPro, catePro, categoriaSeleccionada) {
+    nombrePro = document.getElementById('nombre').value;
+    precioPro = document.getElementById('precio').value;
+    catePro = document.getElementsByName('Cat');
 
-    let categoriaSeleccionada;
     catePro.forEach(function (categoria) {
         if (categoria.checked) {
             categoriaSeleccionada = categoria.value;
         }
     });
 
+    this.dataList.push({
+        nombreProx: nombrePro,
+        precioProx: precioPro,
+        cateProx: categoriaSeleccionada
+    })
+    this.insertarLineaPro(nombrePro, precioPro, catePro, categoriaSeleccionada);
+}
+
+function insertarLineaPro(nombrePro, precioPro, catePro, categoriaSeleccionada) {
     let tabla = document.getElementById("tablaProId");
     let nuevaFila = tabla.insertRow(-1);
+
+    nuevaFila.addEventListener('click', function () {
+
+        document.getElementById('nombre').value = nombrePro;
+        document.getElementById('precio').value = precioPro;
+        let listRadio = document.getElementsByName('Cat');
+        listRadio.forEach(function (radiob) {
+            if (radiob.value === categoriaSeleccionada) {
+                radiob.checked = true;
+            }
+        });
+    });
 
     let celdaNombre = nuevaFila.insertCell(0);
     let celdaPrecio = nuevaFila.insertCell(1);
@@ -22,6 +42,14 @@ function mostrarDatosPro() {
     celdaNombre.textContent = nombrePro;
     celdaPrecio.textContent = "$ " + precioPro;
     celdaCat.textContent = categoriaSeleccionada;
+    if (categoriaSeleccionada === 'Alimentos') {
+        celdaCat.classList.add('Ali');
+    } else if (categoriaSeleccionada === 'Objetos') {
+        celdaCat.classList.add('Obj');
+    }
+    else if (categoriaSeleccionada === 'Computadoras') {
+        celdaCat.classList.add('Pc');
+    }
 
     document.getElementById('nombre').value = "";
     document.getElementById('precio').value = "";
@@ -30,31 +58,52 @@ function mostrarDatosPro() {
         catePro[i].checked = false;
     }
 }
-function guardarDatosCli() {
+
+function guardarPro(row) {
+    let nombrePro = "";
+    let precioPro = "";
+    let catePro = "";
+    let categoriaSeleccionada = "";
+    
+    if (row) {
+        nombrePro = row.nombreProx;
+        precioPro = row.precioProx;
+        catePro = row.cateProx;
+        categoriaSeleccionada = row.cateProx;
+        this.insertarLineaPro(nombrePro, precioPro, catePro, categoriaSeleccionada,);
+    } else {
+        this.guardarDatosPro(nombrePro, precioPro, catePro, categoriaSeleccionada);
+
+    }
+
+}
+
+function guardarDatosCli(nombreCli, apeCli, edadCli, correoCli) {
     nombreCli = document.getElementById('nomClient').value;
     apeCli = document.getElementById('apeClient').value;
     edadCli = document.getElementById('edadClient').value;
     correoCli = document.getElementById('emailClient').value;
 
     this.dataList.push({
-        nomClix: nomClient,
-        apeClix: apeClient,
-        edadClix: edadClient,
-        emailClix: emailClient
+        nomClix: nombreCli,
+        apeClix: apeCli,
+        edadClix: edadCli,
+        emailClix: correoCli
     });
-    this.insertarLineaCli(nomClient, apeClient, edadClient, emailClient);
+    console.log(dataList)
+    this.insertarLineaCli(nombreCli, apeCli, edadCli, correoCli);
 }
 
-function insertarLineaCli(nomClient, apeClient, edadClient, emailClient) {
+function insertarLineaCli(nombreCli, apeCli, edadCli, correoCli) {
     let tabla = document.getElementById("tablaCliId");
     let nuevaFila = tabla.insertRow(-1);
 
     nuevaFila.addEventListener('click', function () {
 
-        document.getElementById('codPed').value = nomClient;
-        document.getElementById('DirecPed').value = apeClient;
-        document.getElementById('datePe').value = edadClient;
-        document.getElementById('lugarPe').value = emailClient;
+        document.getElementById('nomClient').value = nombreCli;
+        document.getElementById('apeClient').value = apeCli;
+        document.getElementById('edadClient').value = edadCli;
+        document.getElementById('emailClient').value = correoCli;
 
     });
 
@@ -62,10 +111,10 @@ function insertarLineaCli(nomClient, apeClient, edadClient, emailClient) {
     let celdaApe = nuevaFila.insertCell(1);
     let celdaedad = nuevaFila.insertCell(2);
     let celdacorreo = nuevaFila.insertCell(3);
-    celdaNombre.textContent = nomClient;
-    celdaApe.textContent = apeClient;
-    celdaedad.textContent = edadClient;
-    celdacorreo.textContent = emailClient;
+    celdaNombre.textContent = nombreCli;
+    celdaApe.textContent = apeCli;
+    celdaedad.textContent = edadCli;
+    celdacorreo.textContent = correoCli;
 
     document.getElementById('nomClient').value = "";
     document.getElementById('apeClient').value = "";
@@ -73,6 +122,24 @@ function insertarLineaCli(nomClient, apeClient, edadClient, emailClient) {
     document.getElementById('emailClient').value = "";
 }
 
+function guardarCli(row) {
+    let nombreCli = "";
+    let apeCli = "";
+    let edadCli = "";
+    let correoCli = "";
+
+    if (row) {
+        nombreCli = row.nomClix;
+        apeCli = row.apeClix;
+        edadCli = row.edadClix;
+        correoCli = row.emailClix;
+        this.insertarLineaCli(nombreCli, apeCli, edadCli, correoCli);
+    } else {
+        this.guardarDatosCli(nombreCli, apeCli, edadCli, correoCli);
+
+    }
+    // this.insertarLinea(codPe,direcPe,fechaPe,LugarPe,opcionSeleccionada,estaPe);
+}
 
 function guardarDatosPe(codPe, direcPe, estaPe, opcionSeleccionada, fechaPe, LugarPe) {
     codPe = document.getElementById('codPed').value;
@@ -120,8 +187,6 @@ function insertarLineaPe(codPe, direcPe, fechaPe, LugarPe, opcionSeleccionada, e
         document.getElementById('lugarPe').value = LugarPe;
 
     });
-
-
 
     let celdaCod = nuevaFila.insertCell(0);
     let celdaDirec = nuevaFila.insertCell(1);

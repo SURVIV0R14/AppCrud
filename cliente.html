@@ -8,41 +8,41 @@
     <link rel="stylesheet" href="app.css">
     <script src="app.js"></script>
     <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<style>
-    .material-symbols-outlined {
-        color: white;
-        font-variation-settings:
-            'FILL' 0,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 24
-    }
-</style>
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        .material-symbols-outlined {
+            color: white;
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
 </head>
 
 <body>
     <div>
         <a class="btn-header regresar" href="1.html"><span class="material-symbols-outlined">
-            home
-        </span></a>
+                home
+            </span></a>
     </div>
     <div class="contenedorGrande2">
         <h1>CLIENTES</h1>
         <div class="contenedorMediano2">
             <div class="inputNombreClientes">
-                <h3>NOMBRE:</h3> 
-                <input type="text" id="nomClient" placeholder="Nombre del cliente" required>                                         
+                <h3>NOMBRE:</h3>
+                <input type="text" id="nomClient" placeholder="Nombre del cliente" required>
             </div>
             <br>
             <div class="inputApellidosClientes">
-                <h3>APELLIDOS:</h3> 
-                <input type="text" id="apeClient" placeholder="Apellidos del cliente" required>           
+                <h3>APELLIDOS:</h3>
+                <input type="text" id="apeClient" placeholder="Apellidos del cliente" required>
             </div>
             <br>
             <div class="inputEdadClientes">
                 <h3>EDAD:</h3>
-                <input type="text" id="edadClient" placeholder="Edad del cliente" required>              
+                <input type="text" id="edadClient" placeholder="Edad del cliente" required>
             </div>
             <div class="inputEmailClientes">
                 <h3>CORREO ELECTRONICO:</h3>
@@ -51,7 +51,7 @@
             <br>
             <br>
             <div class="Enviar">
-                <button onclick="mostrarDatosCli()" class="btn-header enviar1" id="submit">GUARDAR PRODUCTO</button>
+                <button onclick="guardarCli(null)" class="btn-header enviar1" id="submit">GUARDAR PRODUCTO</button>
                 <button class="btn-header editar">EDITAR</button>
                 <button class="btn-header eliminar">ELIMINAR</button>
             </div>
@@ -59,18 +59,17 @@
     </div>
     <div class="contenedorTablaProducto">
         <table class="tablaPro" id="tablaCliId">
-            <tr>
-                <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Edad</th>
-                <th>Correo ELECTRONICO</th>
-            </tr>
-            <tr>
-                <td>Manzana</td>
-                <td>10</td>
-                <td>Computadora</td>
-                <td>******@***.com</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Edad</th>
+                    <th>Correo ELECTRONICO</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
         </table>
     </div>
 
