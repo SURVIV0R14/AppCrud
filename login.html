@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="login.js"></script>
+</head>
+
+<body>
+    <div class="container1">
+        <div class="log">
+            <h1>LOGIN</h1>
+        </div>
+        <div class="container2">
+            <label class="lblUsuario">Usuario:</label>
+            <input type="text" class="inputUsuario" id="usuarioInput" placeholder="Ingrese su usuario" required>
+            <br>
+            <br>
+            <label class="lblContraseña">Contraseña:</label>
+            <input type="password" id="passInput" placeholder="Ingrese su contraseña" required>
+            <br>
+            <br>
+            <div class="resetPassword">
+                <a href="#">¿Olvidaste tu contraseña?</a>
+            </div>
+            <br>
+            <button class="ingresar" onclick="ingresarLogin()">Ingresar</button>
+        </div>
+    </div>
+</body>
+
+</html>

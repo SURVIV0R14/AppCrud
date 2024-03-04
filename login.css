@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+
+/* holasasda */
+
+:root {
+    --clr-black: #1c1c1c;
+    --clr-gray: #ececec;
+    --clr-white: #f7f7f7;
+
+    --type-normal: #A8A878;
+    --type-fire: #F08030;
+    --type-water: #6890F0;
+    --type-grass: #78C850;
+    --type-electric: #F8D030;
+    --type-ice: #98D8D8;
+    --type-fighting: #C03028;
+    --type-poison: #A040A0;
+    --type-ground: #E0C068;
+    --type-flying: #A890F0;
+    --type-psychic: #F85888;
+    --type-bug: #A8B820;
+    --type-rock: #B8A038;
+    --type-ghost: #705898;
+    --type-dark: #705848;
+    --type-dragon: #7038F8;
+    --type-steel: #B8B8D0;
+    --type-fairy: #F0B6BC;
+}
+
+*{
+    font-family: 'Rubik', sans-serif;
+}
+
+.container1{
+    background-color: var(--clr-gray);
+    height: 250px;
+    width: 300px;
+    border-radius: 1rem;
+    padding: 5rem;
+    margin: 2rem;
+    box-shadow: 0 0 1rem rgb(0, 0, 0, .25);
+    border: 0px solid rgba(0, 0, 0, 0.1);
+}
+button{
+    align-items: center;
+
+    width: 100px;
+    height: 30px;
+    text-transform: uppercase;
+    text-align: center;
+    border: none;
+    border-radius: 0.4rem;
+    background-color: var(--type-electric);
+    box-shadow: 0 0 1rem rgb(0, 0, 0, .25); 
+    transition: 1s; 
+}
+button:hover{
+    scale: 1.2;
+}
+body{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
