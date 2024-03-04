@@ -64,7 +64,7 @@ function guardarPro(row) {
     let precioPro = "";
     let catePro = "";
     let categoriaSeleccionada = "";
-    
+
     if (row) {
         nombrePro = row.nombreProx;
         precioPro = row.precioProx;
@@ -255,6 +255,17 @@ function setData() {
 
 
     }
+}
+function editarFilaPro() {
+    
+    var fila = document.querySelectorAll('tr');
+
+    fila.forEach(function (fila) {
+        fila.addEventListener("click", function () {
+            var filaclick = this;
+            console.log(filaclick);
+        })
+    })
 }
 
 
