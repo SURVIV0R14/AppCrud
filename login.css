@@ -66,3 +66,10 @@ body{
      align-items: center;
      height: 100vh;
 }
+input{
+    border-radius: 0.5rem;
+    border: none;
+    width: 160px;
+    height: 20px;
+}
+
