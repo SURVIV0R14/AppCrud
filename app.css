@@ -107,6 +107,7 @@ ul {
 .btn-header:hover {
     transform: scale(1.2);
     box-shadow: 0 0 2rem rgb(0, 0, 0 .25);
+    transition: 1s;
 }
 
 header {
@@ -193,15 +194,20 @@ input {
 }
 
 .editar1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: auto;
-    border-radius: 1rem;
-    background-color: #e094b5;
+    border-radius: 0.5rem;
+    background-color: red;
     border: none;
     text-transform: uppercase;
     font-weight: 800;
-    width: 180px;
+    width: 100px;
     height: 30px;
     color: white;
+    transition: 1s;
 }
 
 .eliminar1 {
@@ -297,4 +303,9 @@ table{
 .tablaPro>tbody>tr:hover{
     cursor: pointer;
     background-color: #F0B6BC;
+}
+.editar1:hover{
+    transform: scale(1.2);
+    box-shadow: 0 0 2rem rgb(0, 0, 0 .25);
+    transition: 1s;
 }
