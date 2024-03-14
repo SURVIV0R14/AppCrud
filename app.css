@@ -309,3 +309,27 @@ table{
     box-shadow: 0 0 2rem rgb(0, 0, 0 .25);
     transition: 1s;
 }
+#guardar{
+    background-color: blue;
+}
+.guardar0{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    width: 100px;
+    height: 30px;
+    color: white;
+    border-radius: 0.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    border: none;
+    margin: auto;
+    transition: 1s;
+}
+.guardar0:hover{
+    transform: scale(1.2);
+    box-shadow: 0 0 2rem rgb(0, 0, 0 .25);
+    transition: 1s;
+}

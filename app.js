@@ -25,8 +25,34 @@ function insertarLineaPro(nombrePro, precioPro, catePro, categoriaSeleccionada) 
     let tabla = document.getElementById("tablaProId");
     let nuevaFila = tabla.insertRow(-1);
 
-    nuevaFila.addEventListener('click', function () {
+    // nuevaFila.addEventListener('click', function () {
 
+    //     document.getElementById('nombre').value = nombrePro;
+    //     document.getElementById('precio').value = precioPro;
+    //     let listRadio = document.getElementsByName('Cat');
+    //     listRadio.forEach(function (radiob) {
+    //         if (radiob.value === categoriaSeleccionada) {
+    //             radiob.checked = true;
+    //         }
+    //     });
+    // });
+
+    let celdaNombre = nuevaFila.insertCell(0);
+    let celdaPrecio = nuevaFila.insertCell(1);
+    let celdaCat = nuevaFila.insertCell(2);
+    var botones = nuevaFila.insertCell(3);
+    
+    celdaNombre.textContent = nombrePro;
+    celdaPrecio.textContent = "$ " + precioPro;
+    celdaCat.textContent = categoriaSeleccionada;
+
+
+
+    let botonEditar = document.createElement("button");
+    botonEditar.textContent = "Editar";
+    botonEditar.classList.add("editar1");
+    botonEditar.id = "editar";
+    botonEditar.addEventListener('click', function () {
         document.getElementById('nombre').value = nombrePro;
         document.getElementById('precio').value = precioPro;
         let listRadio = document.getElementsByName('Cat');
@@ -35,28 +61,43 @@ function insertarLineaPro(nombrePro, precioPro, catePro, categoriaSeleccionada) 
                 radiob.checked = true;
             }
         });
+        botonEditar.style.display = "none";
+       
+        let botonSave = document.createElement("button");
+        botonSave.textContent = "Guardar";
+        botonSave.classList.add("guardar0");
+        botonSave.id = "guardar0";
+        botones.appendChild(botonSave);
+
+
+        botonSave.addEventListener("click",function(){
+
+        var fila = this.parentNode.parentNode; 
+
+        var nombretbl = document.getElementById("nombre").value;
+        var preciotbl = document.getElementById("precio").value;
+        let listRad = document.getElementsByName("Cat");
+        listRad.forEach(function (radiob) {
+            if (radiob.value === categoriaSeleccionada) {
+                radiob.checked = true;
+            }
+        });
+           
+        var celdas = fila.querySelectorAll('td');
+        celdas[0].textContent = nombretbl;
+        celdas[1].textContent = preciotbl;
+        celdas[2].textContent = categoriaSeleccionada;
+
+            botonSave.style.display = "none";
+            botonEditar.style.display = "flex";
+        })
     });
 
-    let celdaNombre = nuevaFila.insertCell(0);
-    let celdaPrecio = nuevaFila.insertCell(1);
-    let celdaCat = nuevaFila.insertCell(2);
-    var btnAccion = nuevaFila.insertCell(3);
-    celdaNombre.textContent = nombrePro;
-    celdaPrecio.textContent = "$ " + precioPro;
-    celdaCat.textContent = categoriaSeleccionada;
-
-    let boton = document.createElement("button");
-    boton.textContent = "Editar";
-    boton.classList.add("editar1");
-    boton.id = "editar";
-    boton.addEventListener("click", function() {
-
-    });
-
-    btnAccion.appendChild(boton);
+    botones.appendChild(botonEditar);
+    
 
     // btnAccion.innerHTML = '<button onclick="editarFilaPro()" class="btn-header editar1" id="editar">Editar</button>';
-    btnAccion.querySelector('button').addEventListener('click', editarFilaPro); // Asignar evento al botón
+    // btnAccion.querySelector('button').addEventListener('click', editarFilaPro); // Asignar evento al botón
     if (categoriaSeleccionada === 'Alimentos') {
         celdaCat.classList.add('Ali');
     } else if (categoriaSeleccionada === 'Objetos') {
@@ -271,57 +312,60 @@ function setData() {
 
     }
 }
-function editarFilaPro1() {
-    let tabla = document.getElementById('tablaProId');
-    var filas = tabla.querySelectorAll('tr:not(:first-child)');
-    
-    for (let i = 0; i < this.dataList.length; i++) {
+// function editarFilaPro1() {
+//     let tabla = document.getElementById('tablaProId');
+//     var filas = tabla.querySelectorAll('tr:not(:first-child)');
 
-        this.mostrarDatosPe(this.dataList[i]);
-    }
-}
+//     for (let i = 0; i < this.dataList.length; i++) {
+
+//         this.mostrarDatosPe(this.dataList[i]);
+//     }
+// }
 function editarFilaPro() {
     var tabla = document.getElementById('tablaProId');
-    var fila = tabla.querySelectorAll('tr');
+    var filas = tabla.querySelectorAll('tr');
 
-    var nombre = fila.cells[0].innerText;
-    var precio = fila.cells[1].innerText;
-    document.getElementById("nombre").value = nombre;
-    document.getElementById("precio").value = precio;
-    catePro = document.getElementsByName('Cat');
+    // Iterar sobre cada fila
+    filas.forEach(function (fila) {
+        // Acceder a las celdas dentro de cada fila
+        var celdas = fila.querySelectorAll('td');
 
-    catePro.forEach(function (categoria) {
-        if (categoria.checked) {
-            const categoriaSeleccionada = categoria.value;
+        // Verificar si la fila actual está siendo editada
+        if (filaSeleccionada === celdas[1].innerText) {
+            // Obtener los nuevos datos de los campos de entrada
+            var nombreNuevo = document.getElementById("nombre").value;
+            var precioNuevo = document.getElementById("precio").value;
+            var catPro = document.getElementsByName("Cat");
+
+            // Actualizar los datos de la fila seleccionada
+            celdas[1].innerText = nombreNuevo;
+            celdas[2].innerText = precioNuevo;
+            // Asignar la nueva categoría
+            catPro.forEach(function (categoria) {
+                if (categoria.checked) {
+                    celdas[3].innerText = categoria.value;
+                }
+            });
+
+            // Limpiar los campos de entrada
+            document.getElementById("nombre").value = "";
+            document.getElementById("precio").value = "";
+            document.getElementsByName("Cat").forEach(function (categoria) {
+                categoria.checked = false;
+            });
+
+            // Restablecer la variable de fila seleccionada a null
+            filaSeleccionada = null;
         }
     });
-
-    if (filaEditando === nombre) {
-        // Obtener los nuevos datos de los campos de entrada
-        var nombreNuevo = document.getElementById("nombre").value;
-        var apellidoNuevo = document.getElementById("apellido").value;
-        var catPro = document.getElementsByName("Cat");
-
-        // Actualizar los datos de la fila seleccionada
-        filaEditando.cells[0].innerText = nombreNuevo;
-        filaEditando.cells[1].innerText = apellidoNuevo;
-        filaEditando.cells[2].innerText = catPro;
-
-        // Limpiar los campos de entrada
-        document.getElementById("nombre").value = "";
-        document.getElementById("apellido").value = "";
-        document.getElementsByName("Cat") = false;
-
-        // Restablecer la variable de fila seleccionada a null
-        filaEditando = null;
-    }
+    console.log("hola");
 }
-function eliminarFila(){
+function eliminarFila() {
     var tabla = document.getElementById('tablaProId');
     var filas = tabla.querySelectorAll('tr');
 
     for (var i = 1; i < filas.length; i++) {
-        tabla.deleteRow(i);       
+        tabla.deleteRow(i);
     }
 
 }
