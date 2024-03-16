@@ -41,7 +41,7 @@ function insertarLineaPro(nombrePro, precioPro, catePro, categoriaSeleccionada) 
     let celdaPrecio = nuevaFila.insertCell(1);
     let celdaCat = nuevaFila.insertCell(2);
     var botones = nuevaFila.insertCell(3);
-    
+
     celdaNombre.textContent = nombrePro;
     celdaPrecio.textContent = "$ " + precioPro;
     celdaCat.textContent = categoriaSeleccionada;
@@ -52,7 +52,11 @@ function insertarLineaPro(nombrePro, precioPro, catePro, categoriaSeleccionada) 
     botonEditar.textContent = "Editar";
     botonEditar.classList.add("editar1");
     botonEditar.id = "editar";
+
     botonEditar.addEventListener('click', function () {
+        nombrePro = celdaNombre.textContent;
+        precioPro = celdaPrecio.textContent.replace("$ ","");
+        categoriaSeleccionada = celdaCat.textContent;
         document.getElementById('nombre').value = nombrePro;
         document.getElementById('precio').value = precioPro;
         let listRadio = document.getElementsByName('Cat');
@@ -61,32 +65,31 @@ function insertarLineaPro(nombrePro, precioPro, catePro, categoriaSeleccionada) 
                 radiob.checked = true;
             }
         });
+
         botonEditar.style.display = "none";
-       
+
         let botonSave = document.createElement("button");
         botonSave.textContent = "Guardar";
         botonSave.classList.add("guardar0");
         botonSave.id = "guardar0";
         botones.appendChild(botonSave);
 
+        botonSave.addEventListener("click", function () {
 
-        botonSave.addEventListener("click",function(){
+            var fila = this.parentNode.parentNode;
+            var nombretbl = document.getElementById("nombre").value;
+            var preciotbl = document.getElementById("precio").value;
+            let listRad = document.getElementsByName("Cat");
+            listRad.forEach(function (radiob) {
+                if (radiob.value === categoriaSeleccionada) {
+                    radiob.checked = true;
+                }
+            });
 
-        var fila = this.parentNode.parentNode; 
-
-        var nombretbl = document.getElementById("nombre").value;
-        var preciotbl = document.getElementById("precio").value;
-        let listRad = document.getElementsByName("Cat");
-        listRad.forEach(function (radiob) {
-            if (radiob.value === categoriaSeleccionada) {
-                radiob.checked = true;
-            }
-        });
-           
-        var celdas = fila.querySelectorAll('td');
-        celdas[0].textContent = nombretbl;
-        celdas[1].textContent = preciotbl;
-        celdas[2].textContent = categoriaSeleccionada;
+            var celdas = fila.querySelectorAll('td');
+            celdas[0].textContent = nombretbl;
+            celdas[1].textContent = preciotbl;
+            celdas[2].textContent = categoriaSeleccionada;
 
             botonSave.style.display = "none";
             botonEditar.style.display = "flex";
@@ -94,7 +97,7 @@ function insertarLineaPro(nombrePro, precioPro, catePro, categoriaSeleccionada) 
     });
 
     botones.appendChild(botonEditar);
-    
+
 
     // btnAccion.innerHTML = '<button onclick="editarFilaPro()" class="btn-header editar1" id="editar">Editar</button>';
     // btnAccion.querySelector('button').addEventListener('click', editarFilaPro); // Asignar evento al botón
@@ -154,23 +157,72 @@ function insertarLineaCli(nombreCli, apeCli, edadCli, correoCli) {
     let tabla = document.getElementById("tablaCliId");
     let nuevaFila = tabla.insertRow(-1);
 
-    nuevaFila.addEventListener('click', function () {
+    // nuevaFila.addEventListener('click', function () {
+
+    //     document.getElementById('nomClient').value = nombreCli;
+    //     document.getElementById('apeClient').value = apeCli;
+    //     document.getElementById('edadClient').value = edadCli;
+    //     document.getElementById('emailClient').value = correoCli;
+
+    // });
+
+    let celdaNombre = nuevaFila.insertCell(0);
+    let celdaApe = nuevaFila.insertCell(1);
+    let celdaedad = nuevaFila.insertCell(2);
+    let celdacorreo = nuevaFila.insertCell(3);
+    let celdaBotones = nuevaFila.insertCell(4);
+
+    celdaNombre.textContent = nombreCli;
+    celdaApe.textContent = apeCli;
+    celdaedad.textContent = edadCli;
+    celdacorreo.textContent = correoCli;
+
+
+    let botonEditar = document.createElement("button");
+    botonEditar.textContent = "Editar";
+    botonEditar.classList.add("editar1");
+    botonEditar.id = "editar";
+
+    botonEditar.addEventListener('click', function () {
+        nombreCli = celdaNombre.textContent;
+        apeCli = celdaApe.textContent;
+        edadCli = celdaedad.textContent;
+        correoCli = celdacorreo.textContent;
 
         document.getElementById('nomClient').value = nombreCli;
         document.getElementById('apeClient').value = apeCli;
         document.getElementById('edadClient').value = edadCli;
         document.getElementById('emailClient').value = correoCli;
 
+        botonEditar.style.display = "none";
+
+        let botonSave = document.createElement("button");
+        botonSave.textContent = "Guardar";
+        botonSave.classList.add("guardar0");
+        botonSave.id = "guardar0";
+        celdaBotones.appendChild(botonSave);
+
+        botonSave.addEventListener("click", function () {
+
+            var fila = this.parentNode.parentNode;
+            var nombretbl = document.getElementById("nomClient").value;
+            var Apetbl = document.getElementById("apeClient").value;
+            var Edadtbl = document.getElementById("edadClient").value;
+            var Correotbl = document.getElementById("emailClient").value;
+            
+
+            var celdas = fila.querySelectorAll('td');
+            celdas[0].textContent = nombretbl;
+            celdas[1].textContent = Apetbl;
+            celdas[2].textContent = Edadtbl;
+            celdas[3].textContent = Correotbl;
+
+            botonSave.style.display = "none";
+            botonEditar.style.display = "flex";
+        })
     });
 
-    let celdaNombre = nuevaFila.insertCell(0);
-    let celdaApe = nuevaFila.insertCell(1);
-    let celdaedad = nuevaFila.insertCell(2);
-    let celdacorreo = nuevaFila.insertCell(3);
-    celdaNombre.textContent = nombreCli;
-    celdaApe.textContent = apeCli;
-    celdaedad.textContent = edadCli;
-    celdacorreo.textContent = correoCli;
+    celdaBotones.appendChild(botonEditar);
 
     document.getElementById('nomClient').value = "";
     document.getElementById('apeClient').value = "";
@@ -228,27 +280,28 @@ function insertarLineaPe(codPe, direcPe, fechaPe, LugarPe, opcionSeleccionada, e
     let tabla = document.getElementById('tablaPeId');
     let nuevaFila = tabla.insertRow(-1);
 
-    nuevaFila.addEventListener('click', function () {
+    // nuevaFila.addEventListener('click', function () {
 
-        document.getElementById('codPed').value = codPe;
-        document.getElementById('DirecPed').value = direcPe;
-        let listRadio = document.getElementsByName('estado');
-        listRadio.forEach(function (radiob) {
-            if (radiob.value === opcionSeleccionada) {
-                radiob.checked = true;
-            }
-        });
+    //     document.getElementById('codPed').value = codPe;
+    //     document.getElementById('DirecPed').value = direcPe;
+    //     let listRadio = document.getElementsByName('estado');
+    //     listRadio.forEach(function (radiob) {
+    //         if (radiob.value === opcionSeleccionada) {
+    //             radiob.checked = true;
+    //         }
+    //     });
 
-        document.getElementById('datePe').value = fechaPe;
-        document.getElementById('lugarPe').value = LugarPe;
+    //     document.getElementById('datePe').value = fechaPe;
+    //     document.getElementById('lugarPe').value = LugarPe;
 
-    });
+    // });
 
     let celdaCod = nuevaFila.insertCell(0);
     let celdaDirec = nuevaFila.insertCell(1);
     let celdaEsta = nuevaFila.insertCell(2);
     let celdaFecha = nuevaFila.insertCell(3);
     let celdaLugar = nuevaFila.insertCell(4);
+    let celdaBotones = nuevaFila.insertCell(5);
     celdaCod.textContent = "#" + codPe;
     celdaDirec.textContent = direcPe;
     celdaFecha.textContent = fechaPe;
@@ -260,6 +313,67 @@ function insertarLineaPe(codPe, direcPe, fechaPe, LugarPe, opcionSeleccionada, e
     } else if (opcionSeleccionada === 'NO ENTREGADO') {
         celdaEsta.classList.add('noEntregado');
     }
+
+    let botonEditar = document.createElement("button");
+    botonEditar.textContent = "Editar";
+    botonEditar.classList.add("editar1");
+    botonEditar.id = "editar";
+
+    botonEditar.addEventListener('click', function () {
+        codPe = celdaCod.textContent.replace("# ","");
+        direcPe = celdaDirec.textContent;
+        opcionSeleccionada = celdaEsta.textContent;
+        fechaPe = celdaFecha.textContent;
+        LugarPe = celdaLugar.textContent;
+        
+
+        document.getElementById('codPed').value = codPe;
+        document.getElementById('DirecPed').value = direcPe;
+        document.getElementById('datePe').value = fechaPe;
+        document.getElementById('lugarPe').value = LugarPe;
+        let listRadio = document.getElementsByName('estado');
+        listRadio.forEach(function (radiob) {
+            if (radiob.value === opcionSeleccionada) {
+                radiob.checked = true;
+            }
+        });
+
+        botonEditar.style.display = "none";
+
+        let botonSave = document.createElement("button");
+        botonSave.textContent = "Guardar";
+        botonSave.classList.add("guardar0");
+        botonSave.id = "guardar0";
+        celdaBotones.appendChild(botonSave);
+
+        botonSave.addEventListener("click", function () {
+
+            var fila = this.parentNode.parentNode;
+            var codtbl = document.getElementById("codPed").value;
+            var directbl = document.getElementById("DirecPed").value;
+            var datetbl = document.getElementById("datePe").value;
+            var lugartbl = document.getElementById("lugarPe").value;
+            
+            let listRad = document.getElementsByName('estado');
+            listRad.forEach(function (radiob) {
+                if (radiob.value === opcionSeleccionada) {
+                    radiob.checked = true;
+                }
+            });
+
+            var celdas = fila.querySelectorAll('td');
+            celdas[0].textContent = codtbl;
+            celdas[1].textContent = directbl;
+            celdas[2].textContent = opcionSeleccionada;
+            celdas[3].textContent = datetbl;
+            celdas[4].textContent = lugartbl;
+            
+            botonSave.style.display = "none";
+            botonEditar.style.display = "flex";
+        })
+    });
+
+    celdaBotones.appendChild(botonEditar);
 
     document.getElementById('codPed').value = "";
     document.getElementById('DirecPed').value = "";
