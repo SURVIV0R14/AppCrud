@@ -55,7 +55,7 @@ function insertarLineaPro(nombrePro, precioPro, catePro, categoriaSeleccionada) 
 
     botonEditar.addEventListener('click', function () {
         nombrePro = celdaNombre.textContent;
-        precioPro = celdaPrecio.textContent.replace("$ ","");
+        precioPro = celdaPrecio.textContent.replace("$ ", "");
         categoriaSeleccionada = celdaCat.textContent;
         document.getElementById('nombre').value = nombrePro;
         document.getElementById('precio').value = precioPro;
@@ -79,13 +79,12 @@ function insertarLineaPro(nombrePro, precioPro, catePro, categoriaSeleccionada) 
             var fila = this.parentNode.parentNode;
             var nombretbl = document.getElementById("nombre").value;
             var preciotbl = document.getElementById("precio").value;
-            let listRad = document.getElementsByName("Cat");
+            let listRad = document.getElementsByName('Cat');
             listRad.forEach(function (radiob) {
-                if (radiob.value === categoriaSeleccionada) {
-                    radiob.checked = true;
+                if (radiob.checked) {
+                    categoriaSeleccionada = radiob.value;
                 }
             });
-
             var celdas = fila.querySelectorAll('td');
             celdas[0].textContent = nombretbl;
             celdas[1].textContent = preciotbl;
@@ -209,7 +208,7 @@ function insertarLineaCli(nombreCli, apeCli, edadCli, correoCli) {
             var Apetbl = document.getElementById("apeClient").value;
             var Edadtbl = document.getElementById("edadClient").value;
             var Correotbl = document.getElementById("emailClient").value;
-            
+
 
             var celdas = fila.querySelectorAll('td');
             celdas[0].textContent = nombretbl;
@@ -320,12 +319,12 @@ function insertarLineaPe(codPe, direcPe, fechaPe, LugarPe, opcionSeleccionada, e
     botonEditar.id = "editar";
 
     botonEditar.addEventListener('click', function () {
-        codPe = celdaCod.textContent.replace("# ","");
+        codPe = celdaCod.textContent.replace("# ", "");
         direcPe = celdaDirec.textContent;
         opcionSeleccionada = celdaEsta.textContent;
         fechaPe = celdaFecha.textContent;
         LugarPe = celdaLugar.textContent;
-        
+
 
         document.getElementById('codPed').value = codPe;
         document.getElementById('DirecPed').value = direcPe;
@@ -353,11 +352,11 @@ function insertarLineaPe(codPe, direcPe, fechaPe, LugarPe, opcionSeleccionada, e
             var directbl = document.getElementById("DirecPed").value;
             var datetbl = document.getElementById("datePe").value;
             var lugartbl = document.getElementById("lugarPe").value;
-            
+
             let listRad = document.getElementsByName('estado');
             listRad.forEach(function (radiob) {
-                if (radiob.value === opcionSeleccionada) {
-                    radiob.checked = true;
+                if (radiob.checked) {
+                    opcionSeleccionada = radiob.value;
                 }
             });
 
@@ -365,9 +364,13 @@ function insertarLineaPe(codPe, direcPe, fechaPe, LugarPe, opcionSeleccionada, e
             celdas[0].textContent = codtbl;
             celdas[1].textContent = directbl;
             celdas[2].textContent = opcionSeleccionada;
+            if (opcionSeleccionada === 'ENTREGADO') {
+                celdaEsta.classList.add('Entregado');
+            } else if (opcionSeleccionada === 'NO ENTREGADO') {
+                celdaEsta.classList.add('noEntregado');
+            }
             celdas[3].textContent = datetbl;
             celdas[4].textContent = lugartbl;
-            
             botonSave.style.display = "none";
             botonEditar.style.display = "flex";
         })
